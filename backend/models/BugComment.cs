@@ -8,7 +8,7 @@ namespace backend.Models{
         public string Content { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
  
-        public Bug Bug { get; set; } = null!;
+
         public User User { get; set; } = null!;
     }
 }

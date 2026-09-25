@@ -9,6 +9,7 @@
    --------------------------------------------------------- */
 
 CREATE TABLE Users (
+    -- name
     Id              UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
     Email           NVARCHAR(256)   NOT NULL UNIQUE,
     DisplayName     NVARCHAR(128)   NOT NULL,
@@ -79,7 +80,7 @@ CREATE TABLE BugAttachments (
     BugReportId     UNIQUEIDENTIFIER NOT NULL REFERENCES BugReports(Id),
     FileUrl         NVARCHAR(512)   NOT NULL,
     FileType        NVARCHAR(32)    NOT NULL, -- Screenshot, Recording, Log, Other
-    UploadedById    UNIQUEIDENTIFIER NOT NULL REFERENCES Users(Id),
+    UploadedByUserId    UNIQUEIDENTIFIER NOT NULL REFERENCES Users(Id),
     CreatedAt       DATETIME2       NOT NULL DEFAULT SYSUTCDATETIME()
 );
 

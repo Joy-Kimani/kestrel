@@ -10,6 +10,6 @@ namespace backend.Models
         public DateTime CreatedAt { get; set; }
  
         public User User { get; set; } = null!;
-        public Bug? Bug { get; set; }
+
     }
 }

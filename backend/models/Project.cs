@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace backend.Models
 {
 
@@ -5,10 +7,10 @@ namespace backend.Models
     {
         public Guid ProjectId { get; set; }
         public Guid TeamId { get; set; }
+        [ForeignKey(nameof(TeamId))]
+        public Team Team { get; set; } = null!;
         public string Name { get; set; } = string.Empty;
         public string? Description { get; set; }
- 
-        public Team Team { get; set; } = null!;
-        public ICollection<Bug> Bugs { get; set; } = new List<Bug>();
+        public DateTime CreatedAt {get; set;} = DateTime.UtcNow;
     }
 }

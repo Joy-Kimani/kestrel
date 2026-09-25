@@ -8,6 +8,6 @@ namespace backend.Models
         public string GeneratedOutput { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
  
-        public Bug Bug { get; set; } = null!;
+
     }
 }
