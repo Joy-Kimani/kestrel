@@ -1,15 +1,16 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace backend.Models
 {
       public class Notification
     {
-        public Guid NotificationId { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
         public Guid UserId { get; set; }
-        public Guid? BugId { get; set; }
-        public string Message { get; set; } = string.Empty;
-        public bool IsRead { get; set; }
-        public DateTime CreatedAt { get; set; }
- 
-        public User User { get; set; } = null!;
-
+        [ForeignKey(nameof(UserId))]
+        public User Users { get; set; } = null!;
+        public string Type { get; set; } = null!;
+        public string? PayloadJson {get; set;}
+        public bool IsRead { get; set; } = false;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }
